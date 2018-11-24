@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>Alumnos reprobados en periodo ordinario UABC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://dl.dropbox.com/s/6op8jrcbuxslcku/style.css">
+<body>
+
+<div class="w3-container w3-green" style="width:100%;">
+  <h1>Herramienta de conteo alumnos reprobados en periodo ordinario</h1>
+</div>
+
+<br>
+<div class="w3-container">
+    <div style="text-align: center;">
+<img src="http://www.uabc.mx/logos/imagenes/08.jpg" alt="UABC Logo"  style="width:12%;height:12%;">
+  </div><br>
+  <br>
+  <div style="text-align: center;">
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-brown"  >Calcular alumnos reprobados en total en una materia</button><br>
+  <br>
+  </div><br>
+  <div style="text-align: center;">
+  <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-brown">Calcular alumnos reprobados por NP y SD</button><br>
+  </div><br>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container w3-green">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+      <form action="upload" method="post" enctype="multipart/form-data">
+      <br>
+        <input type="file" multiple="" name="file[]" class="span3" /><br /><br>
+        <input type="submit" name="submit_button" value="Subir archivos de acta PDF y generar archivo Excel reprobados totales"  class="span2"><br>
+      </form><br>
+      </div>
+    </div>
+  </div>
+
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container w3-green">
+        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+      <form action="upload" method="post" enctype="multipart/form-data">
+      <br>
+        <input type="file" multiple="" name="file[]" class="span3" /><br /><br>
+        <input type="submit" name="submit_button" value="Subir archivos de acta PDF y generar archivo Excel reprobados SD y NP"  class="span2"><br>
+      </form><br>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<div class="w3-container w3-green" style="position:fixed; bottom:0; width:100%; height:5%;">
+  <h5 align="right">UABC FIM</h5>
+</div>        
+
+</body>
+</html>
