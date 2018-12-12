@@ -59,7 +59,7 @@ def contadorAlumnosReprobadosTotales():
         # obtiene todos los numeros contenidos en el pdf
             numeros = re.findall('\d+', texto)
             reprobados = reprobados + sinDerecho + noPresento;
-
+           
             i = 12
         # mientras i sea menor a la cantidad de numeros, busca los numeros menores o iguales a 100
         # y los mayores o iguales a 60 y suma uno a la cantidad de aprobados en caso de encontrarlo
@@ -106,8 +106,12 @@ def contadorAlumnosReprobadosTotales():
     worksheet.write('C1', 'Reprobados')
     worksheet.write('D1', '% de Aprobados')
     worksheet.write('E1', '% de Reprobados')
-    worksheet.write('D2', '=B2/(B2+C2)', cell_format1)
-    worksheet.write('E2', '=C2/(B2+C2)', cell_format1)
+
+    pos = 2
+    for z in range(0,len(profesores)):
+        worksheet.write('D'+str(pos), '=B'+str(pos)+'/(B'+str(pos)+'+C'+str(pos)+')', cell_format1)
+        worksheet.write('E'+str(pos), '=C'+str(pos)+'/(B'+str(pos)+'+C'+str(pos)+')', cell_format1)
+        pos = pos + 1
 
     for z in range(0,len(profesores)):
         worksheet.write(z+1, 0, profesores[z])
@@ -229,4 +233,3 @@ def contadorAlumnosReprobadosNPSD():
     for item in test:
         if item.endswith(".pdf"):
             os.remove(os.path.join(directory, item))
-
